@@ -1,9 +1,9 @@
 package com.solvd.delivery.shippingMethods;
 
 import com.solvd.delivery.enums.DeliveryWay;
-import com.solvd.delivery.interfaces.IShippingDestination;
+import com.solvd.delivery.interfaces.IDistance;
 
-public class ShippingMethod implements IShippingDestination {
+public class ShippingMethod implements IDistance {
 
     private double cost;
     private DeliveryWay deliveryWay;
@@ -41,9 +41,10 @@ public class ShippingMethod implements IShippingDestination {
     }
 
     // ------------------------ @Override -------------------------//
+
     @Override
-    public void destination() {
-        System.out.println("Your package has been shipped to " + toHome);
+    public void distance(String source, String destination) {
+
     }
 }
 

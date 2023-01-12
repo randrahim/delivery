@@ -1,6 +1,8 @@
 package com.solvd.delivery.people;
 
 import com.solvd.delivery.enums.*;
+import com.solvd.delivery.interfaces.IDistance;
+import com.solvd.delivery.interfaces.IShippingStatus;
 import com.solvd.delivery.payment.Package;
 import com.solvd.delivery.payment.Payment;
 import com.solvd.delivery.payment.Product;
@@ -87,4 +89,21 @@ public class Generator {
         ShippingStatus shippingStatus = ShippingStatus.SHIPPED;
         return shippingStatus;
     }
+
+// Using Lambda Expression
+    public IDistance generatorIDistance() {
+        IDistance iDistance = (String source, String destination)-> System.out.println("The package shipped from " + source + " to "+ destination);
+        iDistance.distance("Atlanta", "California");
+        return iDistance;
+    }
+
+    public IShippingStatus generatorIShippingStatus() {
+        IShippingStatus iShippingStatus = (boolean shipped)-> {
+            String result =  (shipped == true) ? "The package is shipped" : "The package is not shipped yet.";
+            System.out.println(result);
+        };
+        iShippingStatus.isShipped(true);
+        return iShippingStatus;
+    }
+
 }

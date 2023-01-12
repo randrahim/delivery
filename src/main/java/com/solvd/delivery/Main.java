@@ -1,6 +1,5 @@
 package com.solvd.delivery;
 
-import com.solvd.delivery.interfaces.IExample;
 import com.solvd.delivery.lambda.Discount;
 import com.solvd.delivery.lambda.InsuranceRate;
 import com.solvd.delivery.lambda.Places;
@@ -62,8 +61,7 @@ System.out.println("----------------- The order shipping status ----------------
 
 System.out.println("----------------- Send Notifications to Customer ---------------------------");
         Notifications notifications = new Notifications();
-        notifications.shipped();
-        notifications.destination();
+        notifications.isShipped(true);
         notifications.tracking();
         notifications.sendMsgStatus();
         System.out.println("\n");
@@ -85,11 +83,9 @@ System.out.println("----------------- Lambda Classes ---------------------------
         System.out.println("We hav 5%, 10%, 20%, and 30% discount: " + myDiscount + "\n");
 
 System.out.println("----------------- Lambda Expressions -------------------------------------------");
-IExample IExample = (int x, int y)-> System.out.println(x+y);
-IExample.addition(20, 20);
 
-
-
+generator.generatorIDistance();
+generator.generatorIShippingStatus();
 
 
 //System.out.println("----------------------------------- M Classes -------------------------------------------");

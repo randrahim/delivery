@@ -1,11 +1,10 @@
 package com.solvd.delivery.payment;
 
 import com.solvd.delivery.interfaces.ISendMsgStatus;
-import com.solvd.delivery.interfaces.IShippingDestination;
 import com.solvd.delivery.interfaces.IShippingStatus;
 import com.solvd.delivery.interfaces.ITrackingPackage;
 
-public class Notifications implements IShippingStatus, IShippingDestination, ITrackingPackage, ISendMsgStatus {
+public class Notifications implements IShippingStatus, ITrackingPackage, ISendMsgStatus {
     private String delivery;
 
     // ------------------------ Constructors -------------------------//
@@ -15,7 +14,6 @@ public class Notifications implements IShippingStatus, IShippingDestination, ITr
     public Notifications(String delivery) {
         this.delivery = delivery;
     }
-
 
     // ------------------------ Getters -------------------------//
     public String getDelivery() {
@@ -27,16 +25,10 @@ public class Notifications implements IShippingStatus, IShippingDestination, ITr
         this.delivery = delivery;
     }
 
-
     // ------------------------ @Override -------------------------//
     @Override
-    public void shipped() {
-        System.out.println("Your package is: " + isShipped);
-    }
-
-    @Override
-    public void destination() {
-        System.out.println("The package shipped to: " + toHome);
+    public void isShipped(boolean shipped) {
+        System.out.println("Your package is: " + shipped);
     }
 
     @Override
