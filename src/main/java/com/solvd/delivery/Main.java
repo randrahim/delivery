@@ -9,6 +9,7 @@ import com.solvd.delivery.payment.Transportation;
 import com.solvd.delivery.people.Generator;
 
 import java.util.List;
+import java.util.logging.Level;
 
 public class Main {
     public static void main(String[] args) {
@@ -86,6 +87,21 @@ System.out.println("----------------- Lambda Expressions -----------------------
 
 generator.generatorIDistance();
 generator.generatorIShippingStatus();
+
+System.out.println("----------------- Logger -------------------------------------------------------");
+        class Test{
+            private final java.util.logging.Logger LOGGER = java.util.logging.Logger.getLogger(Test.class.getName());
+            public void getCustomerDetails() {
+                LOGGER.log(Level.WARNING, "Welcome to Edureka!");
+            }
+        }
+
+        Test test = new Test();
+        test.getCustomerDetails();
+
+        Logger logger = new Logger();
+        logger.addition();
+
 
 
 //System.out.println("----------------------------------- M Classes -------------------------------------------");

@@ -40,4 +40,5 @@ public class Notifications implements IShippingStatus, ITrackingPackage, ISendMs
     public void sendMsgStatus() {
         System.out.println("Your package is at City, State (1).");
     }
+
 }
