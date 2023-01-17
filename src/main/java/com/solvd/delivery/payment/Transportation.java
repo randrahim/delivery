@@ -1,5 +1,7 @@
 package com.solvd.delivery.payment;
 
+import java.util.Objects;
+
 public class Transportation {
 
     private String transportation;
@@ -26,5 +28,26 @@ public class Transportation {
     // ------------------------ Setters -------------------------//
     public Transportation(String transportation) {
         this.transportation = transportation;
+    }
+
+    // ------------------------ Add Override equals(), hashCode(), toString() -------------------------//
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Transportation)) return false;
+        Transportation that = (Transportation) o;
+        return transportation.equals(that.transportation);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(transportation);
+    }
+
+    @Override
+    public String toString() {
+        return "Transportation{" +
+                "transportation='" + transportation + '\'' +
+                '}';
     }
 }

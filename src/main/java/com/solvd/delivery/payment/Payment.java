@@ -2,6 +2,8 @@ package com.solvd.delivery.payment;
 
 import com.solvd.delivery.people.Generator;
 
+import java.util.Objects;
+
 public class Payment extends Product {
     private double total;
     Product products = new Product();
@@ -25,8 +27,7 @@ public class Payment extends Product {
     }
 
     // ------------------------ Getters -------------------------//
-    double theItemPrice = 10;
-    int quantity = 2;
+
     public double getTotal(double theItemPrice, int quantity) {
         total = (theItemPrice + (theItemPrice * 0.06)) * quantity;
         return total;
@@ -42,6 +43,27 @@ public class Payment extends Product {
     }
 
     public void setProducts(Product products) {  this.products = products; }
+
+    // ------------------------ Add Override equals(), hashCode(), toString() -------------------------//
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Payment)) return false;
+        Payment payment = (Payment) o;
+        return Double.compare(payment.getTotal(), getTotal()) == 0;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getTotal());
+    }
+
+    @Override
+    public String toString() {
+        return "Payment{" +
+                "total=" + total +
+                '}';
+    }
 }
 
 

@@ -43,6 +43,8 @@ System.out.println("----------------- The Order Summary ------------------------
         int quantity = generator.generatorProduct().getQuantity();
         System.out.println("The quantity is: " + quantity + "\n");
 
+
+
         System.out.println("Customer Payment method is: " + generator.generatorPaymentMethod().getPaymentMethod());
         System.out.println("Customer Payment method fee is: " + generator.generatorPaymentMethod().getFee() + "\n");
 
@@ -103,6 +105,10 @@ System.out.println("----------------- Logger -----------------------------------
         logger.addition();
 
 
+        Payment payment2 = new Payment(24);
+        System.out.println(payment.equals(payment2));
+        System.out.println(payment.hashCode());
+        System.out.println(payment2.toString());
 
 //System.out.println("----------------------------------- M Classes -------------------------------------------");
 //    WordCount wordCount = new WordCount();

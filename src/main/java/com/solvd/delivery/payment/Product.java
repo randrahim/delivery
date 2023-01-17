@@ -1,5 +1,7 @@
 package com.solvd.delivery.payment;
 
+import java.util.Objects;
+
 public class Product {
 
     private String item;
@@ -40,6 +42,28 @@ public class Product {
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
+    }
+    // ------------------------ Add Override equals(), hashCode(), toString() -------------------------//
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Product)) return false;
+        Product product = (Product) o;
+        return Double.compare(product.getPrice(), getPrice()) == 0 && getQuantity() == product.getQuantity() && getItem().equals(product.getItem());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getItem(), getPrice(), getQuantity());
+    }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "item='" + item + '\'' +
+                ", price=" + price +
+                ", quantity=" + quantity +
+                '}';
     }
 }
 

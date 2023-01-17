@@ -1,5 +1,7 @@
 package com.solvd.delivery.payment;
 
+import java.util.Objects;
+
 public class Package {
 
     private int packageSerialNumber;
@@ -40,5 +42,27 @@ public class Package {
 
     public void setPackageWeight(double packageWeight) {
         this.packageWeight = packageWeight;
+    }
+
+    // ------------------------ Add Override equals(), hashCode(), toString() -------------------------//
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Package)) return false;
+        Package aPackage = (Package) o;
+        return getPackageSerialNumber() == aPackage.getPackageSerialNumber() && Double.compare(aPackage.getPackageWeight(), getPackageWeight()) == 0;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getPackageSerialNumber(), getPackageWeight());
+    }
+
+    @Override
+    public String toString() {
+        return "Package{" +
+                "packageSerialNumber=" + packageSerialNumber +
+                ", packageWeight=" + packageWeight +
+                '}';
     }
 }

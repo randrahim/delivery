@@ -3,6 +3,8 @@ package com.solvd.delivery.shippingMethods;
 import com.solvd.delivery.enums.DeliveryWay;
 import com.solvd.delivery.interfaces.IDistance;
 
+import java.util.Objects;
+
 public class ShippingMethod implements IDistance {
 
     private double cost;
@@ -45,6 +47,27 @@ public class ShippingMethod implements IDistance {
     @Override
     public void distance(String source, String destination) {
 
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof ShippingMethod)) return false;
+        ShippingMethod that = (ShippingMethod) o;
+        return Double.compare(that.getCost(), getCost()) == 0 && getDeliveryWay() == that.getDeliveryWay();
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getCost(), getDeliveryWay());
+    }
+
+    @Override
+    public String toString() {
+        return "ShippingMethod{" +
+                "cost=" + cost +
+                ", deliveryWay=" + deliveryWay +
+                '}';
     }
 }
 
