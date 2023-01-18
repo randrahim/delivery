@@ -4,5 +4,4 @@ public enum Recommendation {
     LOW,
     MEDIUM,
     HIGH;
-
 }

@@ -44,5 +44,4 @@ public class Employee extends Person {
     public double getEmployeeSalary() {
         return employeeSalary;
     }
-
 }

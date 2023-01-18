@@ -12,8 +12,6 @@ public class Logger {
         LOGGER.log(Level.INFO, "The total is: " + total);
         return null;
     }
-//
     java.util.logging.Logger myLog = java.util.logging.Logger.getLogger(Logger.class.getName());
 //    myLog.log(Level.INFO, "The total is: " + Logger);
-
 }
