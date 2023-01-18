@@ -1,6 +1,6 @@
 package com.solvd.delivery.payment;
 
-import com.solvd.delivery.people.Generator;
+import com.solvd.delivery.utils.Generator;
 
 import java.util.Objects;
 

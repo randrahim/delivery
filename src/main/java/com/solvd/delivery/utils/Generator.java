@@ -1,4 +1,4 @@
-package com.solvd.delivery.people;
+package com.solvd.delivery.utils;
 
 import com.solvd.delivery.enums.*;
 import com.solvd.delivery.interfaces.IDistance;
@@ -6,6 +6,8 @@ import com.solvd.delivery.interfaces.IShippingStatus;
 import com.solvd.delivery.payment.Package;
 import com.solvd.delivery.payment.Payment;
 import com.solvd.delivery.payment.Product;
+import com.solvd.delivery.people.Customer;
+import com.solvd.delivery.people.Employee;
 import com.solvd.delivery.shippingMethods.ShippingMethod;
 
 public class Generator {

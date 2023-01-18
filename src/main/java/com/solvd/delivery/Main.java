@@ -6,7 +6,7 @@ import com.solvd.delivery.lambda.Places;
 import com.solvd.delivery.payment.Notifications;
 import com.solvd.delivery.payment.Payment;
 import com.solvd.delivery.payment.Transportation;
-import com.solvd.delivery.people.Generator;
+import com.solvd.delivery.utils.Generator;
 import com.solvd.delivery.thread.M;
 
 import java.util.List;
