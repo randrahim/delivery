@@ -1,8 +1,15 @@
 package com.solvd.delivery.thread;
 
-public class C extends Thread {
+import com.solvd.delivery.Main;
+
+public class C extends Main {
     @Override
     public void start() {
-        System.out.println("C");
+        try {
+            sleep(100);
+            System.out.println("C");
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

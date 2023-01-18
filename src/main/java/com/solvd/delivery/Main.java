@@ -7,11 +7,12 @@ import com.solvd.delivery.payment.Notifications;
 import com.solvd.delivery.payment.Payment;
 import com.solvd.delivery.payment.Transportation;
 import com.solvd.delivery.people.Generator;
+import com.solvd.delivery.thread.M;
 
 import java.util.List;
 import java.util.logging.Level;
 
-public class Main {
+public class Main extends Thread {
     public static void main(String[] args) {
 
 //  Get information from Generator --------------------
@@ -42,8 +43,6 @@ System.out.println("----------------- The Order Summary ------------------------
         System.out.println("The item price is: " + theItemPrice);
         int quantity = generator.generatorProduct().getQuantity();
         System.out.println("The quantity is: " + quantity + "\n");
-
-
 
         System.out.println("Customer Payment method is: " + generator.generatorPaymentMethod().getPaymentMethod());
         System.out.println("Customer Payment method fee is: " + generator.generatorPaymentMethod().getFee() + "\n");
@@ -98,17 +97,16 @@ System.out.println("----------------- Logger -----------------------------------
             }
         }
 
-        Test test = new Test();
-        test.getCustomerDetails();
-
         Logger logger = new Logger();
         logger.addition();
-
 
         Payment payment2 = new Payment(24);
         System.out.println(payment.equals(payment2));
         System.out.println(payment.hashCode());
         System.out.println(payment2.toString());
+
+        M m = new M();
+        m.run();
 
 //System.out.println("----------------------------------- M Classes -------------------------------------------");
 //    WordCount wordCount = new WordCount();
