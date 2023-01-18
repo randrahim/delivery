@@ -13,5 +13,8 @@ public class Logger {
         return null;
     }
     java.util.logging.Logger myLog = java.util.logging.Logger.getLogger(Logger.class.getName());
+
+    public void debug(String s) {
+    }
 //    myLog.log(Level.INFO, "The total is: " + Logger);
 }

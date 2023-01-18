@@ -12,7 +12,7 @@ import com.solvd.delivery.shippingMethods.ShippingMethod;
 
 public class Generator {
 
-    public Employee generatorEmployee() {
+    public static Employee generatorEmployee() {
         Employee employee = new Employee();
         employee.setEmployeeID(333);
         employee.setEmployeePosition("Developer");
@@ -23,7 +23,7 @@ public class Generator {
         return employee;
     }
 
-    public Customer generatorCustomer() {
+    public static Customer generatorCustomer() {
         Customer customer = new Customer();
         customer.setCustomerID(222);
         customer.setFullName("Rand Rahim");
@@ -33,7 +33,7 @@ public class Generator {
         return customer;
     }
 
-    public Product generatorProduct() {
+    public static Product generatorProduct() {
         Product product = new Product();
         product.setItem("Coach");
         product.setPrice(10);
@@ -41,7 +41,7 @@ public class Generator {
         return product;
     }
 
-    public Payment generatorPayment() {
+    public static Payment generatorPayment() {
         Payment payment = new Payment();
         double itemPrice = generatorProduct().getPrice();
         int quantity = generatorProduct().getQuantity();
@@ -49,7 +49,7 @@ public class Generator {
         return payment;
     }
 
-    public Package generatorPackage() {
+    public static Package generatorPackage() {
         Package Package = new Package();
         Package.setPackageSerialNumber(11234);
         Package.setPackageWeight(10);
@@ -57,49 +57,49 @@ public class Generator {
     }
 
 //  Get information from Enums classes ----------------------------------------------------------
-    public CustomerServiceRating generatorCustomerServiceRating() {
+    public static CustomerServiceRating generatorCustomerServiceRating() {
         //Using Enum to show the customer's satisfaction rate about the customer service.
         CustomerServiceRating myCustomerServiceRating = CustomerServiceRating.SATISFIED;
         return myCustomerServiceRating;
     }
 
-    public DeliveryServiceRating generatorDeliveryServiceRating() {
+    public static DeliveryServiceRating generatorDeliveryServiceRating() {
         //Using Enum to show the customer's satisfaction rate about the delivery service.
         DeliveryServiceRating myDeliveryServiceRating = DeliveryServiceRating.GOOD;
         return myDeliveryServiceRating;
     }
 
-    public ShippingMethod generatorDeliveryWay() {
+    public static ShippingMethod generatorDeliveryWay() {
         ShippingMethod shippingMethod = new ShippingMethod();
         shippingMethod.setDeliveryWay(DeliveryWay.STANDARD);
         shippingMethod.setCost(7.0);
         return shippingMethod;
     }
 
-    public PaymentMethod generatorPaymentMethod() {
+    public static PaymentMethod generatorPaymentMethod() {
         PaymentMethod paymentMethod = PaymentMethod.DEBIT;
         return paymentMethod;
     }
 
-    public Recommendation generatorRecommendation() {
+    public static Recommendation generatorRecommendation() {
         //Using Enum to show how much the user recommend our company to a friend
         Recommendation myRecommendation = Recommendation.LOW;
         return myRecommendation;
     }
 
-    public ShippingStatus generatorShippingStatus() {
+    public static ShippingStatus generatorShippingStatus() {
         ShippingStatus shippingStatus = ShippingStatus.SHIPPED;
         return shippingStatus;
     }
 
 // Using Lambda Expression
-    public IDistance generatorIDistance() {
+    public static IDistance generatorIDistance() {
         IDistance iDistance = (String source, String destination)-> System.out.println("The package shipped from " + source + " to "+ destination);
         iDistance.distance("Atlanta", "California");
         return iDistance;
     }
 
-    public IShippingStatus generatorIShippingStatus() {
+    public static IShippingStatus generatorIShippingStatus() {
         IShippingStatus iShippingStatus = (boolean shipped)-> {
             String result =  (shipped == true) ? "The package is shipped" : "The package is not shipped yet.";
             System.out.println(result);
