@@ -5,33 +5,33 @@ public enum CustomerServiceRating {
     GOOD(5, 7),
     SATISFIED(8,10);
 
-    private int overallSatisfactionRange;
-    private int overallSatisfactionDeliveryService;
+    private int rating;
+    private int overallSatisfaction;
 
     // ------------------------ Constructors -------------------------//
     CustomerServiceRating() {
     }
 
-    CustomerServiceRating(int overallSatisfactionRange, int overallSatisfactionDeliveryService) {
-        this.overallSatisfactionRange = overallSatisfactionRange;
-        this.overallSatisfactionDeliveryService = overallSatisfactionDeliveryService;
+    CustomerServiceRating(int rating, int overallSatisfaction) {
+        this.rating = rating;
+        this.overallSatisfaction = overallSatisfaction;
     }
 
     // ------------------------ Setters -------------------------//
-    public void setOverallSatisfactionRange(int overallSatisfactionRange) {
-        this.overallSatisfactionRange = overallSatisfactionRange;
+    public void setRating(int rating) {
+        this.rating = rating;
     }
 
-    public void setOverallSatisfactionDeliveryService(int overallSatisfactionDeliveryService) {
-        this.overallSatisfactionDeliveryService = overallSatisfactionDeliveryService;
+    public void setOverallSatisfaction(int overallSatisfaction) {
+        this.overallSatisfaction = overallSatisfaction;
     }
 
     // ------------------------ Getters -------------------------//
-    public int getOverallSatisfactionRange() {
-        return overallSatisfactionRange;
+    public int getRating() {
+        return rating;
     }
 
-    public int getOverallSatisfactionDeliveryService() {
-        return overallSatisfactionDeliveryService;
+    public int getOverallSatisfaction() {
+        return overallSatisfaction;
     }
 }

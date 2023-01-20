@@ -3,7 +3,6 @@ package com.solvd.delivery.payment;
 import java.util.Objects;
 
 public class Transportation {
-
     private String transportation;
 
     // ------------------------ Constructors -------------------------//

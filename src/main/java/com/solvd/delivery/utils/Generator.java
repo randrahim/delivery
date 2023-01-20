@@ -71,7 +71,7 @@ public class Generator {
 
     public static ShippingMethod generatorDeliveryWay() {
         ShippingMethod shippingMethod = new ShippingMethod();
-        shippingMethod.setDeliveryWay(DeliveryWay.STANDARD);
+        shippingMethod.setDeliveryWay(DeliverySpeed.STANDARD);
         shippingMethod.setCost(7.0);
         return shippingMethod;
     }

@@ -1,6 +1,6 @@
 package com.solvd.delivery.shippingMethods;
 
-import com.solvd.delivery.enums.DeliveryWay;
+import com.solvd.delivery.enums.DeliverySpeed;
 import com.solvd.delivery.interfaces.IDistance;
 
 import java.util.Objects;
@@ -8,18 +8,18 @@ import java.util.Objects;
 public class ShippingMethod implements IDistance {
 
     private double cost;
-    private DeliveryWay deliveryWay;
+    private DeliverySpeed deliverySpeed;
 
     // ------------------------ Constructors -------------------------//
     public ShippingMethod() { }
 
     public ShippingMethod(double cost) { this.cost = cost; }
 
-    public ShippingMethod(DeliveryWay deliveryWay) { this.deliveryWay = deliveryWay; }
+    public ShippingMethod(DeliverySpeed deliverySpeed) { this.deliverySpeed = deliverySpeed; }
 
-    public ShippingMethod(double cost, DeliveryWay deliveryWay) {
+    public ShippingMethod(double cost, DeliverySpeed deliverySpeed) {
         this.cost = cost;
-        this.deliveryWay = deliveryWay;
+        this.deliverySpeed = deliverySpeed;
     }
 
     // ------------------------ Getters -------------------------//
@@ -28,8 +28,8 @@ public class ShippingMethod implements IDistance {
         return cost;
     }
 
-    public DeliveryWay getDeliveryWay() {
-        return deliveryWay;
+    public DeliverySpeed getDeliveryWay() {
+        return deliverySpeed;
     }
 
     // ------------------------ Setters -------------------------//
@@ -38,8 +38,8 @@ public class ShippingMethod implements IDistance {
         this.cost = cost;
     }
 
-    public void setDeliveryWay(DeliveryWay deliveryWay) {
-        this.deliveryWay = deliveryWay;
+    public void setDeliveryWay(DeliverySpeed deliverySpeed) {
+        this.deliverySpeed = deliverySpeed;
     }
 
     // ------------------------ @Override -------------------------//
@@ -66,7 +66,7 @@ public class ShippingMethod implements IDistance {
     public String toString() {
         return "ShippingMethod{" +
                 "cost=" + cost +
-                ", deliveryWay=" + deliveryWay +
+                ", deliverySpeed=" + deliverySpeed +
                 '}';
     }
 }
