@@ -1,18 +1,24 @@
 package com.solvd.delivery.utils;
 
-import com.solvd.delivery.lambda.Discount;
-import com.solvd.delivery.lambda.InsuranceRate;
-import com.solvd.delivery.lambda.Places;
 import com.solvd.delivery.payment.Notifications;
 import com.solvd.delivery.payment.Payment;
 import com.solvd.delivery.payment.Transportation;
 import org.apache.logging.log4j.LogManager;
 
-import java.util.List;
-
 public class Logger {
     private static org.apache.logging.log4j.Logger logger = LogManager.getLogger(Logger.class);
 //    private static final Logger logger = LogManager.getLogger(Logger.class);
+
+    public static void printManager() {
+        Generator generator = new Generator();
+        System.out.println("----------------- Manager information -----------------------------------");
+        logger.error("Manager ID: " + generator.generatorManager().getManagerID());
+        logger.error("Manager Full Name: " + generator.generatorManager().getFullName());
+        logger.error("Manager Address: " + generator.generatorManager().getAddress());
+        logger.error("Manager Email: " + generator.generatorManager().getEmail());
+        logger.error("Manager Position: " + generator.generatorManager().getManagerPosition());
+        logger.error("Manager Salary: " + generator.generatorManager().getManagerSalary() + "\n");
+    }
 
     public static void printEmployee() {
         Generator generator = new Generator();
@@ -78,7 +84,6 @@ public class Logger {
     public static void printEnums() {
         Generator generator = new Generator();
         System.out.println("----------------- Enums Classes --------------------------------------------");
-        logger.error("I would recommend your company to a friend: " + generator.generatorRecommendation());
         logger.error("My rating about the overall delivery service: " + generator.generatorDeliveryServiceRating());
         logger.error("My rating about the overall customer service: " + generator.generatorCustomerServiceRating() + "\n");
     }
@@ -86,15 +91,6 @@ public class Logger {
     public static void printLambda() {
         Generator generator = new Generator();
         System.out.println("----------------- Lambda Classes -------------------------------------------");
-        // Using Lambda to show where we can deliver or ship our products.
-        List<String> myPlaces = Places.getPlaces();
-        logger.error("We ship to: " + myPlaces);
-        // Using Lambda to show different insurance rate.
-        List<String> myInsuranceRate = InsuranceRate.getInsuranceRate();
-        logger.error("Our insurance rate list: " + myInsuranceRate + "$.");
-        // Using Lambda to show different discounts offers.
-        List<Double> myDiscount = Discount.getDiscount();
-        logger.error("We hav 5%, 10%, 20%, and 30% discount: " + myDiscount + "\n");
 
         generator.generatorIDistance();
         generator.generatorIShippingStatus();

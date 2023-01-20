@@ -8,9 +8,20 @@ import com.solvd.delivery.payment.Payment;
 import com.solvd.delivery.payment.Product;
 import com.solvd.delivery.people.Customer;
 import com.solvd.delivery.people.Employee;
+import com.solvd.delivery.people.Manager;
 import com.solvd.delivery.shippingMethods.ShippingMethod;
 
 public class Generator {
+    public static Manager generatorManager() {
+        Manager manager = new Manager();
+        manager.setManagerID(959);
+        manager.setManagerPosition("Manager");
+        manager.setManagerSalary(100000);
+        manager.setFullName("Chris William");
+        manager.setAddress("30 Lilburn Rd, Cummings, GA 30584");
+        manager.setEmail("manager@gmail.com");
+        return manager;
+    }
 
     public static Employee generatorEmployee() {
         Employee employee = new Employee();
@@ -18,7 +29,7 @@ public class Generator {
         employee.setEmployeePosition("Developer");
         employee.setEmployeeSalary(55000);
         employee.setFullName("Jack Smith");
-        employee.setAddress("30 Peachtree Street, Alpharetta, GA 30075");
+        employee.setAddress("10 Peachtree Street, Alpharetta, GA 30075");
         employee.setEmail("employee@gmail.com");
         return employee;
     }
@@ -81,12 +92,6 @@ public class Generator {
         return paymentMethod;
     }
 
-    public static Recommendation generatorRecommendation() {
-        //Using Enum to show how much the user recommend our company to a friend
-        Recommendation myRecommendation = Recommendation.LOW;
-        return myRecommendation;
-    }
-
     public static ShippingStatus generatorShippingStatus() {
         ShippingStatus shippingStatus = ShippingStatus.SHIPPED;
         return shippingStatus;
@@ -107,5 +112,4 @@ public class Generator {
         iShippingStatus.isShipped(true);
         return iShippingStatus;
     }
-
 }

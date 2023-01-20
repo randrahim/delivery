@@ -1,7 +1,7 @@
 package com.solvd.delivery.enums;
 
 public enum DeliveryServiceRating {
-    BAD(0, 3),
+    BAD(0, 4),
     GOOD(5,7),
     SATISFIED(8, 10);
 
