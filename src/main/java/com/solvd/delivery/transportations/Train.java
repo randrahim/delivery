@@ -1,4 +1,4 @@
-package com.solvd.delivery.Transportation;
+package com.solvd.delivery.transportations;
 
 public class Train extends Transportation {
     private int trainId;

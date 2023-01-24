@@ -1,4 +1,4 @@
-package com.solvd.delivery.Transportation;
+package com.solvd.delivery.transportations;
 
 import com.solvd.delivery.interfaces.ITransportation;
 

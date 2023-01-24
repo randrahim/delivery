@@ -1,4 +1,4 @@
-package com.solvd.delivery.Transportation;
+package com.solvd.delivery.transportations;
 
 public class Airplane extends Transportation {
     private int airplaneId;

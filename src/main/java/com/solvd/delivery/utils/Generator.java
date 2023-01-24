@@ -1,9 +1,9 @@
 package com.solvd.delivery.utils;
 
-import com.solvd.delivery.Transportation.Airplane;
-import com.solvd.delivery.Transportation.Ship;
-import com.solvd.delivery.Transportation.Train;
-import com.solvd.delivery.Transportation.Truck;
+import com.solvd.delivery.transportations.Airplane;
+import com.solvd.delivery.transportations.Ship;
+import com.solvd.delivery.transportations.Train;
+import com.solvd.delivery.transportations.Truck;
 import com.solvd.delivery.enums.*;
 import com.solvd.delivery.interfaces.IDistance;
 import com.solvd.delivery.interfaces.IShippingStatus;
