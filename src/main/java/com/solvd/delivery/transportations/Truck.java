@@ -1,9 +1,13 @@
 package com.solvd.delivery.transportations;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 public class Truck extends Transportation {
     private int truckId;
     private String truckName;
     private String truckType;
+    private static final Logger logger = LogManager.getLogger(Truck.class);
 
     // ------------------------ Constructors -------------------------//
     public Truck() {

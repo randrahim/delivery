@@ -1,14 +1,16 @@
 package com.solvd.delivery.transportations;
 
-import com.solvd.delivery.interfaces.ITransportation;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.Objects;
 
-public abstract class Transportation implements ITransportation {
+public abstract class Transportation {
     private String transportation;
     private String dateOfDepart;
     private String dateOfArrival;
     private double weightHold;
+    private static final Logger logger = LogManager.getLogger(Transportation.class);
 
     // ------------------------ Constructors -------------------------//
     public Transportation() {
@@ -22,19 +24,33 @@ public abstract class Transportation implements ITransportation {
     }
 
     // ------------------------ Getters -------------------------//
-    public String getTransportation(double thePackageWeight) {
+//    public String getTransportation(double thePackageWeight) {
+//
+//        if ((0 <= thePackageWeight) && (thePackageWeight <= 10)) {
+//            transportation = "Truck";
+//        } else if ((11 <= thePackageWeight) && (thePackageWeight <= 20)) {
+//            transportation = "Train";
+//        } else if ((21 <= thePackageWeight) && (thePackageWeight <= 30)) {
+//            transportation = "Ship";
+//        } else if (31 <= thePackageWeight) {
+//            transportation = "Airplane";
+//        }
+//        return transportation;
+//    }
 
-        if ((0 <= thePackageWeight) && (thePackageWeight <= 10)) {
-            transportation = "Truck";
-        } else if ((11 <= thePackageWeight) && (thePackageWeight <= 20)) {
-            transportation = "Train";
-        } else if ((21 <= thePackageWeight) && (thePackageWeight <= 30)) {
-            transportation = "Ship";
-        } else if (31 <= thePackageWeight) {
-            transportation = "Airplane";
-        }
-        return transportation;
-    }
+//    ITransportation iTransportation = (weight) -> {
+//        String transportation = "";
+//        if ((0 <= weight) && (weight <= 10)) {
+//            transportation = "Truck";
+//        } else if ((11 <= weight) && (weight <= 20)) {
+//            transportation = "Train";
+//        } else if ((21 <= weight) && (weight <= 30)) {
+//            transportation = "Ship";
+//        } else if (31 <= weight) {
+//            transportation = "Airplane";
+//        }
+//        return transportation;
+//    };
 
     public String getTransportation() {
         return transportation;
@@ -94,8 +110,5 @@ public abstract class Transportation implements ITransportation {
                 '}';
     }
 
-    @Override
-    public void myMethod() {
-        System.out.println("test Method");
-    };
+
 }

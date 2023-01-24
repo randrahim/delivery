@@ -2,6 +2,8 @@ package com.solvd.delivery.shippingMethods;
 
 import com.solvd.delivery.enums.DeliverySpeed;
 import com.solvd.delivery.interfaces.IDistance;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.Objects;
 
@@ -9,6 +11,7 @@ public class ShippingMethod implements IDistance {
 
     private double cost;
     private DeliverySpeed deliverySpeed;
+    private static final Logger logger = LogManager.getLogger(ShippingMethod.class);
 
     // ------------------------ Constructors -------------------------//
     public ShippingMethod() { }

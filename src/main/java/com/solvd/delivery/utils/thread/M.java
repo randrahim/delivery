@@ -1,4 +1,4 @@
-package com.solvd.delivery.thread;
+package com.solvd.delivery.utils.thread;
 
 public class M extends Thread {
     public void run() {

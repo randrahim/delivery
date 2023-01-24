@@ -14,8 +14,11 @@ import com.solvd.delivery.people.Customer;
 import com.solvd.delivery.people.Employee;
 import com.solvd.delivery.people.Manager;
 import com.solvd.delivery.shippingMethods.ShippingMethod;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class Generator {
+    private static final Logger logger = LogManager.getLogger(Generator.class);
     // Getting the Manager information
     public static Manager generatorManager() {
         Manager manager = new Manager();
@@ -122,7 +125,7 @@ public class Generator {
     public static Package generatorPackage() {
         Package Package = new Package();
         Package.setPackageSerialNumber(11234);
-        Package.setPackageWeight(10);
+        Package.setPackageWeight(40);
         return Package;
     }
 

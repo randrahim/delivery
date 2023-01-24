@@ -2,11 +2,15 @@ package com.solvd.delivery.utils;
 
 import com.solvd.delivery.payment.Notifications;
 import com.solvd.delivery.payment.Payment;
+import com.solvd.delivery.transportations.Airplane;
+import com.solvd.delivery.transportations.Ship;
+import com.solvd.delivery.transportations.Train;
+import com.solvd.delivery.transportations.Truck;
 import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
-public class Logger {
-    private static org.apache.logging.log4j.Logger logger = LogManager.getLogger(Logger.class);
-//    private static final Logger logger = LogManager.getLogger(Logger.class);
+public class PrintValues {
+    private static Logger logger = LogManager.getLogger(PrintValues.class);
 
     public static void printManager() {
         Generator generator = new Generator();
@@ -79,6 +83,61 @@ public class Logger {
         notifications.tracking();
         notifications.sendMsgStatus();
         logger.error("\n");
+    }
+
+    public static void printShip() {
+        Generator generator = new Generator();
+        System.out.println("----------------- Print Ship ---------------------------");
+        Ship ship = new Ship();
+        logger.error(generator.generatorShip().getTransportation());
+        logger.error(generator.generatorShip().getShipId());
+        logger.error(generator.generatorShip().getShipName());
+        logger.error(generator.generatorShip().getShipType());
+        logger.error(generator.generatorShip().getWeightHold());
+        logger.error(generator.generatorShip().getDateOfDepart());
+        logger.error(generator.generatorShip().getDateOfArrival());
+    }
+
+    public static void printTruck() {
+        Generator generator = new Generator();
+        Truck truck = new Truck();
+
+        System.out.println("----------------- Print Ship ---------------------------");
+        logger.error(generator.generatorTruck().getTransportation());
+        logger.error(generator.generatorTruck().getTruckId());
+        logger.error(generator.generatorTruck().getTruckName());
+        logger.error(generator.generatorTruck().getTruckType());
+        logger.error(generator.generatorTruck().getWeightHold());
+        logger.error(generator.generatorTruck().getDateOfDepart());
+        logger.error(generator.generatorTruck().getDateOfArrival());
+    }
+
+    public static void printTrain() {
+        Generator generator = new Generator();
+        Train train = new Train();
+
+        System.out.println("----------------- Print Ship ---------------------------");
+        logger.error(generator.generatorTrain().getTransportation());
+        logger.error(generator.generatorTrain().getTrainId());
+        logger.error(generator.generatorTrain().getTrainName());
+        logger.error(generator.generatorTrain().getTrainType());
+        logger.error(generator.generatorTrain().getWeightHold());
+        logger.error(generator.generatorTrain().getDateOfDepart());
+        logger.error(generator.generatorTrain().getDateOfArrival());
+    }
+
+    public static void printAirplane() {
+        Generator generator = new Generator();
+        Airplane airplane = new Airplane();
+
+        System.out.println("----------------- Print Ship ---------------------------");
+        logger.error(generator.generatorAirplane().getTransportation());
+        logger.error(generator.generatorAirplane().getAirplaneId());
+        logger.error(generator.generatorAirplane().getAirplaneName());
+        logger.error(generator.generatorAirplane().getAirplaneType());
+        logger.error(generator.generatorAirplane().getWeightHold());
+        logger.error(generator.generatorAirplane().getDateOfDepart());
+        logger.error(generator.generatorAirplane().getDateOfArrival());
     }
     public static void printEnums() {
         Generator generator = new Generator();

@@ -1,6 +1,8 @@
-package com.solvd.delivery.thread;
+package com.solvd.delivery.utils.thread;
 
 import com.solvd.delivery.Main;
+
+import static java.lang.Thread.sleep;
 
 public class C extends Main {
     @Override

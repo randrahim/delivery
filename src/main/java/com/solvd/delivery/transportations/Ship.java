@@ -1,9 +1,14 @@
 package com.solvd.delivery.transportations;
 
-public class Ship extends Transportation {
+import com.solvd.delivery.interfaces.ITransportation;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+public class Ship extends Transportation implements ITransportation  {
     private int shipId;
     private String shipName;
     private String shipType;
+    private static final Logger logger = LogManager.getLogger(Ship.class);
 
     // ------------------------ Constructors -------------------------//
     public Ship() {
@@ -40,5 +45,10 @@ public class Ship extends Transportation {
 
     public void setShipType(String shipType) {
         this.shipType = shipType;
+    }
+
+    @Override
+    public String transWay() {
+        return null;
     }
 }

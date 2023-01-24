@@ -1,6 +1,7 @@
 package com.solvd.delivery.interfaces;
 
 @FunctionalInterface
-public interface ITransportation {
-    String transWay();
+public interface Example {
+
+    int calc(int x, int y);
 }
