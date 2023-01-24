@@ -14,8 +14,11 @@ import com.solvd.delivery.people.Customer;
 import com.solvd.delivery.people.Employee;
 import com.solvd.delivery.people.Manager;
 import com.solvd.delivery.shippingMethods.ShippingMethod;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class Generator {
+    private static final Logger logger = LogManager.getLogger(Generator.class);
     // Getting the Manager information
     public static Manager generatorManager() {
         Manager manager = new Manager();

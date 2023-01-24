@@ -1,9 +1,13 @@
 package com.solvd.delivery.people;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 public abstract class Person {
     private String fullName;
     private String address;
     private String email;
+    private static final Logger logger = LogManager.getLogger(Person.class);
 
     // ------------------------ Constructors -------------------------//
     public Person() {

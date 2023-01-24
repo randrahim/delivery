@@ -1,19 +1,19 @@
 package com.solvd.delivery;
 
-import com.solvd.delivery.utils.Logger;
+import com.solvd.delivery.utils.PrintValues;
 
 public class Main extends Thread {
     public static void main(String[] args) {
-        // Using Logger to print out the values from Generator class
-        Logger logger = new Logger();
-        logger.printManager();
-        logger.printEmployee();
-        logger.printCustomer();
+        // Using PrintValues to print out the values from Generator class
+        PrintValues printValues = new PrintValues();
+        printValues.printManager();
+        printValues.printEmployee();
+        printValues.printCustomer();
 
-        logger.printProduct();
-        logger.printPackage();
-        logger.printNotifications();
-        logger.printEnums();
+        printValues.printProduct();
+        printValues.printPackage();
+        printValues.printNotifications();
+        printValues.printEnums();
 
         // Using Thread
         // M m = new M();

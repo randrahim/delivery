@@ -1,9 +1,13 @@
 package com.solvd.delivery.transportations;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 public class Airplane extends Transportation {
     private int airplaneId;
     private String airplaneName;
     private String airplaneType;
+    private static final Logger logger = LogManager.getLogger(Airplane.class);
 
     // ------------------------ Constructors -------------------------//
     public Airplane() {

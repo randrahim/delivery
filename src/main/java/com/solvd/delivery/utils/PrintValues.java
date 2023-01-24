@@ -3,10 +3,10 @@ package com.solvd.delivery.utils;
 import com.solvd.delivery.payment.Notifications;
 import com.solvd.delivery.payment.Payment;
 import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
-public class Logger {
-    private static org.apache.logging.log4j.Logger logger = LogManager.getLogger(Logger.class);
-//    private static final Logger logger = LogManager.getLogger(Logger.class);
+public class PrintValues {
+    private static Logger logger = LogManager.getLogger(PrintValues.class);
 
     public static void printManager() {
         Generator generator = new Generator();

@@ -1,13 +1,15 @@
 package com.solvd.delivery.payment;
 
-import com.solvd.delivery.utils.Generator;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.Objects;
 
 public class Payment extends Product {
     private double total;
-    Product products = new Product();
-    Generator generator = new Generator();
+    private Product products;
+    private static final Logger logger = LogManager.getLogger(Payment.class);
+//    Generator generator = new Generator();
 
     // ------------------------ Constructors -------------------------//
     public Payment() {

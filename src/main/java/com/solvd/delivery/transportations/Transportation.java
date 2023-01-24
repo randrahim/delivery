@@ -1,6 +1,8 @@
 package com.solvd.delivery.transportations;
 
 import com.solvd.delivery.interfaces.ITransportation;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.Objects;
 
@@ -9,6 +11,7 @@ public abstract class Transportation implements ITransportation {
     private String dateOfDepart;
     private String dateOfArrival;
     private double weightHold;
+    private static final Logger logger = LogManager.getLogger(Transportation.class);
 
     // ------------------------ Constructors -------------------------//
     public Transportation() {

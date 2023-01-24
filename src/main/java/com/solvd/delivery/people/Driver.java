@@ -1,8 +1,12 @@
 package com.solvd.delivery.people;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 public class Driver extends Person {
     private int driverID;
     private int licenseNo;
+    private static final Logger logger = LogManager.getLogger(Driver.class);
 
     // ------------------------ Constructors -------------------------//
     public Driver() {

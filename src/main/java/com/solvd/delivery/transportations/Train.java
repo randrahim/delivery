@@ -1,10 +1,14 @@
 package com.solvd.delivery.transportations;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 public class Train extends Transportation {
     private int trainId;
     private String trainName;
     private String trainType;
     private double weightHold;
+    private static final Logger logger = LogManager.getLogger(Train.class);
 
     // ------------------------ Constructors -------------------------//
     public Train() {

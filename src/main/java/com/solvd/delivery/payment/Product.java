@@ -1,12 +1,15 @@
 package com.solvd.delivery.payment;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.util.Objects;
 
 public class Product {
-
     private String item;
     private double price;
     private int quantity;
+    private static final Logger logger = LogManager.getLogger(Product.class);
 
     // ------------------------ Constructors -------------------------//
     public Product() {
