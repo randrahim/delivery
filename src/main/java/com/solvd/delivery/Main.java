@@ -9,6 +9,7 @@ public class Main extends Thread {
         logger.printManager();
         logger.printEmployee();
         logger.printCustomer();
+
         logger.printProduct();
         logger.printPackage();
         logger.printNotifications();

@@ -1,5 +1,9 @@
 package com.solvd.delivery.utils;
 
+import com.solvd.delivery.Transportation.Airplane;
+import com.solvd.delivery.Transportation.Ship;
+import com.solvd.delivery.Transportation.Train;
+import com.solvd.delivery.Transportation.Truck;
 import com.solvd.delivery.enums.*;
 import com.solvd.delivery.interfaces.IDistance;
 import com.solvd.delivery.interfaces.IShippingStatus;
@@ -12,6 +16,7 @@ import com.solvd.delivery.people.Manager;
 import com.solvd.delivery.shippingMethods.ShippingMethod;
 
 public class Generator {
+    // Getting the Manager information
     public static Manager generatorManager() {
         Manager manager = new Manager();
         manager.setManagerID(959);
@@ -23,6 +28,7 @@ public class Generator {
         return manager;
     }
 
+    // Getting the Employee information
     public static Employee generatorEmployee() {
         Employee employee = new Employee();
         employee.setEmployeeID(333);
@@ -34,6 +40,7 @@ public class Generator {
         return employee;
     }
 
+    // Getting the Customer information
     public static Customer generatorCustomer() {
         Customer customer = new Customer();
         customer.setCustomerID(222);
@@ -44,6 +51,56 @@ public class Generator {
         return customer;
     }
 
+    // Getting the transportation information
+    public static Train generatorTrain() {
+        Train train = new Train();
+        train.setTransportation("Train");
+        train.setTrainId(2564);
+        train.setTrainName("Railrestro");
+        train.setTrainType("Freight Trains");
+        train.setWeightHold(18);
+        train.setDateOfDepart("Jan-08-2021");
+        train.setDateOfArrival("Jan-25-2021");
+        return train;
+    }
+
+    public static Truck generatorTruck() {
+        Truck truck = new Truck();
+        truck.setTransportation("Truck");
+        truck.setTruckId(2564);
+        truck.setTruckName("Freight liners");
+        truck.setTruckType("Package Delivery Trucks");
+        truck.setWeightHold(18);
+        truck.setDateOfDepart("Jan-08-2021");
+        truck.setDateOfArrival("Jan-25-2021");
+        return truck;
+    }
+
+    public static Ship generatorShip() {
+        Ship ship = new Ship();
+        ship.setTransportation("Ship");
+        ship.setShipId(2564);
+        ship.setShipName("Cargo Ship");
+        ship.setShipType("Delivery Ships");
+        ship.setWeightHold(18);
+        ship.setDateOfDepart("Jan-08-2021");
+        ship.setDateOfArrival("Jan-25-2021");
+        return ship;
+    }
+
+    public static Airplane generatorAirplane() {
+        Airplane airplane = new Airplane();
+        airplane.setTransportation("Airplane");
+        airplane.setAirplaneId(2564);
+        airplane.setAirplaneName("Cargo Jet");
+        airplane.setAirplaneType("Delivery Airplane");
+        airplane.setWeightHold(18);
+        airplane.setDateOfDepart("Jan-08-2021");
+        airplane.setDateOfArrival("Jan-25-2021");
+        return airplane;
+    }
+
+    // Getting the Product information
     public static Product generatorProduct() {
         Product product = new Product();
         product.setItem("Coach");
@@ -52,6 +109,7 @@ public class Generator {
         return product;
     }
 
+    // Getting the Payment information
     public static Payment generatorPayment() {
         Payment payment = new Payment();
         double itemPrice = generatorProduct().getPrice();
@@ -60,6 +118,7 @@ public class Generator {
         return payment;
     }
 
+    // Getting the Package information
     public static Package generatorPackage() {
         Package Package = new Package();
         Package.setPackageSerialNumber(11234);

@@ -1,12 +1,24 @@
-package com.solvd.delivery.payment;
+package com.solvd.delivery.Transportation;
+
+import com.solvd.delivery.interfaces.ITransportation;
 
 import java.util.Objects;
 
-public class Transportation {
+public abstract class Transportation implements ITransportation {
     private String transportation;
+    private String dateOfDepart;
+    private String dateOfArrival;
+    private double weightHold;
 
     // ------------------------ Constructors -------------------------//
     public Transportation() {
+    }
+
+    public Transportation(String transportation, String dateOfDepart, String dateOfArrival, double weightHold) {
+        this.transportation = transportation;
+        this.dateOfDepart = dateOfDepart;
+        this.dateOfArrival = dateOfArrival;
+        this.weightHold = weightHold;
     }
 
     // ------------------------ Getters -------------------------//
@@ -24,9 +36,41 @@ public class Transportation {
         return transportation;
     }
 
+    public String getTransportation() {
+        return transportation;
+    }
+
+    public String getDateOfDepart() {
+        return dateOfDepart;
+    }
+
+    public String getDateOfArrival() {
+        return dateOfArrival;
+    }
+
+    public double getWeightHold() {
+        return weightHold;
+    }
+
     // ------------------------ Setters -------------------------//
     public Transportation(String transportation) {
         this.transportation = transportation;
+    }
+
+    public void setTransportation(String transportation) {
+        this.transportation = transportation;
+    }
+
+    public void setDateOfDepart(String dateOfDepart) {
+        this.dateOfDepart = dateOfDepart;
+    }
+
+    public void setDateOfArrival(String dateOfArrival) {
+        this.dateOfArrival = dateOfArrival;
+    }
+
+    public void setWeightHold(double weightHold) {
+        this.weightHold = weightHold;
     }
 
     // ------------------------ Add Override equals(), hashCode(), toString() -------------------------//
@@ -49,4 +93,9 @@ public class Transportation {
                 "transportation='" + transportation + '\'' +
                 '}';
     }
+
+    @Override
+    public void myMethod() {
+        System.out.println("test Method");
+    };
 }

@@ -2,7 +2,6 @@ package com.solvd.delivery.utils;
 
 import com.solvd.delivery.payment.Notifications;
 import com.solvd.delivery.payment.Payment;
-import com.solvd.delivery.payment.Transportation;
 import org.apache.logging.log4j.LogManager;
 
 public class Logger {
@@ -68,8 +67,8 @@ public class Logger {
         System.out.println("----------------- The order shipping status -----------------------------------");
         double thePackageWeight = generator.generatorPackage().getPackageWeight();
         // Decide what Transportation Way (Truck, Train, Ship, Airplane)
-        Transportation transportation = new Transportation();
-        logger.error("The package shipped by " + transportation.getTransportation(thePackageWeight));
+//        Transportation transportation = new Transportation();
+//        logger.error("The package shipped by " + transportation.getTransportation(thePackageWeight));
         logger.error(generator.generatorShippingStatus() + "\n");
     }
     public static void printNotifications() {
