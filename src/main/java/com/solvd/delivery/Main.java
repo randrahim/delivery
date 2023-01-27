@@ -26,11 +26,8 @@ public class Main extends Thread {
         printValues.printNotifications();
         printValues.printEnums();
 
-
         double thePackageWeight = generator.generatorPackage().getPackageWeight();
         System.out.println("The package weight is: " + thePackageWeight);
-
-
 
         // Using Lambda Expression & Functional Interface to get transportation way to ship the package
         // Decide what Transportation Way (Truck, Train, Ship, Airplane) based on the PackageWeight
@@ -63,6 +60,7 @@ public class Main extends Thread {
             return total;
         };
         logger.error("The total payment is: " + iCart.totalPayment());
+        System.out.println("Testing to push code");
 
 //        IShippingStatus iShippingStatus = ()-> {
 //            boolean shippingStatus;
