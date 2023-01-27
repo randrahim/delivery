@@ -2,6 +2,7 @@ package com.solvd.delivery.utils;
 
 import com.solvd.delivery.enums.*;
 import com.solvd.delivery.interfaces.IDistance;
+import com.solvd.delivery.interfaces.IShippingStatus;
 import com.solvd.delivery.payment.Package;
 import com.solvd.delivery.payment.Payment;
 import com.solvd.delivery.payment.Product;
@@ -165,15 +166,12 @@ public class Generator {
         return iDistance;
     }
 
-//    public static IShippingStatus generatorIShippingStatus() {
-//        IShippingStatus iShippingStatus = (boolean shipped)-> {
-//            String result =  (shipped == true) ? "The package is shipped" : "The package is not shipped yet.";
-//            System.out.println(result);
-//        };
-//        iShippingStatus.isShipped(true);
-//        return iShippingStatus;
-//    }
-
-
-
+    public static IShippingStatus generatorIShippingStatus() {
+        IShippingStatus iShippingStatus = (boolean shipped) -> {
+            String result =  (shipped == true) ? "The package is shipped" : "The package is not shipped yet.";
+            System.out.println(result);
+        };
+        iShippingStatus.isShipped(true);
+        return iShippingStatus;
+    };
 }

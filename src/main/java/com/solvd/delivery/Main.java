@@ -60,18 +60,5 @@ public class Main extends Thread {
             return total;
         };
         logger.error("The total payment is: " + iCart.totalPayment());
-        System.out.println("Testing to push code");
-
-//        IShippingStatus iShippingStatus = ()-> {
-//            boolean shippingStatus;
-//            if (shippingStatus == true) {
-//                return "The package is shipped";
-//            } else {
-//                return "The package is not shipped yet.";
-//            }
-//            return shippingStatus;
-//        };
-//        IShippingStatus.isShipped();
-
     }
 }
