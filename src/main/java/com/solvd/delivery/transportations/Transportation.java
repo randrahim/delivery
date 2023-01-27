@@ -7,6 +7,7 @@ import java.util.Objects;
 
 public abstract class Transportation {
     private String transportation;
+    private int vehicleID;
     private String dateOfDepart;
     private String dateOfArrival;
     private double weightHold;
@@ -16,45 +17,21 @@ public abstract class Transportation {
     public Transportation() {
     }
 
-    public Transportation(String transportation, String dateOfDepart, String dateOfArrival, double weightHold) {
+    public Transportation(String transportation, int vehicleID, String dateOfDepart, String dateOfArrival, double weightHold) {
         this.transportation = transportation;
+        this.vehicleID = vehicleID;
         this.dateOfDepart = dateOfDepart;
         this.dateOfArrival = dateOfArrival;
         this.weightHold = weightHold;
     }
 
     // ------------------------ Getters -------------------------//
-//    public String getTransportation(double thePackageWeight) {
-//
-//        if ((0 <= thePackageWeight) && (thePackageWeight <= 10)) {
-//            transportation = "Truck";
-//        } else if ((11 <= thePackageWeight) && (thePackageWeight <= 20)) {
-//            transportation = "Train";
-//        } else if ((21 <= thePackageWeight) && (thePackageWeight <= 30)) {
-//            transportation = "Ship";
-//        } else if (31 <= thePackageWeight) {
-//            transportation = "Airplane";
-//        }
-//        return transportation;
-//    }
-
-//    ITransportation iTransportation = (weight) -> {
-//        String transportation = "";
-//        if ((0 <= weight) && (weight <= 10)) {
-//            transportation = "Truck";
-//        } else if ((11 <= weight) && (weight <= 20)) {
-//            transportation = "Train";
-//        } else if ((21 <= weight) && (weight <= 30)) {
-//            transportation = "Ship";
-//        } else if (31 <= weight) {
-//            transportation = "Airplane";
-//        }
-//        return transportation;
-//    };
 
     public String getTransportation() {
         return transportation;
     }
+
+    public int getVehicleID() { return vehicleID; }
 
     public String getDateOfDepart() {
         return dateOfDepart;
@@ -73,6 +50,8 @@ public abstract class Transportation {
         this.transportation = transportation;
     }
 
+    public void setVehicleID(int vehicleID) { this.vehicleID = vehicleID; }
+
     public void setTransportation(String transportation) {
         this.transportation = transportation;
     }
@@ -90,25 +69,28 @@ public abstract class Transportation {
     }
 
     // ------------------------ Add Override equals(), hashCode(), toString() -------------------------//
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Transportation)) return false;
         Transportation that = (Transportation) o;
-        return transportation.equals(that.transportation);
+        return getVehicleID() == that.getVehicleID() && Double.compare(that.getWeightHold(), getWeightHold()) == 0 && getTransportation().equals(that.getTransportation()) && getDateOfDepart().equals(that.getDateOfDepart()) && getDateOfArrival().equals(that.getDateOfArrival());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(transportation);
+        return Objects.hash(getTransportation(), getVehicleID(), getDateOfDepart(), getDateOfArrival(), getWeightHold());
     }
 
     @Override
     public String toString() {
         return "Transportation{" +
                 "transportation='" + transportation + '\'' +
+                ", vehicleID=" + vehicleID +
+                ", dateOfDepart='" + dateOfDepart + '\'' +
+                ", dateOfArrival='" + dateOfArrival + '\'' +
+                ", weightHold=" + weightHold +
                 '}';
     }
-
-
 }

@@ -1,6 +1,5 @@
-package com.solvd.delivery.interfaces;
-
-@FunctionalInterface
-public interface IShippingStatus {
-    void isShipped(boolean shipped);
-}
+//package com.solvd.delivery.interfaces;
+//
+//public interface IShippingStatus {
+//    static String isShipped(boolean shipped);
+//}

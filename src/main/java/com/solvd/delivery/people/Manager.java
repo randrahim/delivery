@@ -3,6 +3,8 @@ package com.solvd.delivery.people;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.util.Objects;
+
 public class Manager extends Person {
     private int managerID;
     private String managerPosition;
@@ -47,5 +49,29 @@ public class Manager extends Person {
 
     public void setManagerSalary(double managerSalary) {
         this.managerSalary = managerSalary;
+    }
+
+    // ------------------------ Add Override equals(), hashCode(), toString() -------------------------//
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Manager)) return false;
+        Manager manager = (Manager) o;
+        return getManagerID() == manager.getManagerID() && Double.compare(manager.getManagerSalary(), getManagerSalary()) == 0 && getManagerPosition().equals(manager.getManagerPosition());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getManagerID(), getManagerPosition(), getManagerSalary());
+    }
+
+    @Override
+    public String toString() {
+        return "Manager{" +
+                "managerID=" + managerID +
+                ", managerPosition='" + managerPosition + '\'' +
+                ", managerSalary=" + managerSalary +
+                '}';
     }
 }

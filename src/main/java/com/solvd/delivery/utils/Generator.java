@@ -1,12 +1,7 @@
 package com.solvd.delivery.utils;
 
-import com.solvd.delivery.transportations.Airplane;
-import com.solvd.delivery.transportations.Ship;
-import com.solvd.delivery.transportations.Train;
-import com.solvd.delivery.transportations.Truck;
 import com.solvd.delivery.enums.*;
 import com.solvd.delivery.interfaces.IDistance;
-import com.solvd.delivery.interfaces.IShippingStatus;
 import com.solvd.delivery.payment.Package;
 import com.solvd.delivery.payment.Payment;
 import com.solvd.delivery.payment.Product;
@@ -14,6 +9,10 @@ import com.solvd.delivery.people.Customer;
 import com.solvd.delivery.people.Employee;
 import com.solvd.delivery.people.Manager;
 import com.solvd.delivery.shippingMethods.ShippingMethod;
+import com.solvd.delivery.transportations.Airplane;
+import com.solvd.delivery.transportations.Ship;
+import com.solvd.delivery.transportations.Train;
+import com.solvd.delivery.transportations.Truck;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -58,7 +57,7 @@ public class Generator {
     public static Train generatorTrain() {
         Train train = new Train();
         train.setTransportation("Train");
-        train.setTrainId(2564);
+        train.setVehicleID(2564);
         train.setTrainName("Railrestro");
         train.setTrainType("Freight Trains");
         train.setWeightHold(18);
@@ -70,7 +69,7 @@ public class Generator {
     public static Truck generatorTruck() {
         Truck truck = new Truck();
         truck.setTransportation("Truck");
-        truck.setTruckId(2564);
+        truck.setVehicleID(2564);
         truck.setTruckName("Freight liners");
         truck.setTruckType("Package Delivery Trucks");
         truck.setWeightHold(18);
@@ -82,7 +81,7 @@ public class Generator {
     public static Ship generatorShip() {
         Ship ship = new Ship();
         ship.setTransportation("Ship");
-        ship.setShipId(2564);
+        ship.setVehicleID(2564);
         ship.setShipName("Cargo Ship");
         ship.setShipType("Delivery Ships");
         ship.setWeightHold(18);
@@ -94,7 +93,7 @@ public class Generator {
     public static Airplane generatorAirplane() {
         Airplane airplane = new Airplane();
         airplane.setTransportation("Airplane");
-        airplane.setAirplaneId(2564);
+        airplane.setVehicleID(2564);
         airplane.setAirplaneName("Cargo Jet");
         airplane.setAirplaneType("Delivery Airplane");
         airplane.setWeightHold(18);
@@ -166,12 +165,15 @@ public class Generator {
         return iDistance;
     }
 
-    public static IShippingStatus generatorIShippingStatus() {
-        IShippingStatus iShippingStatus = (boolean shipped)-> {
-            String result =  (shipped == true) ? "The package is shipped" : "The package is not shipped yet.";
-            System.out.println(result);
-        };
-        iShippingStatus.isShipped(true);
-        return iShippingStatus;
-    }
+//    public static IShippingStatus generatorIShippingStatus() {
+//        IShippingStatus iShippingStatus = (boolean shipped)-> {
+//            String result =  (shipped == true) ? "The package is shipped" : "The package is not shipped yet.";
+//            System.out.println(result);
+//        };
+//        iShippingStatus.isShipped(true);
+//        return iShippingStatus;
+//    }
+
+
+
 }

@@ -1,11 +1,11 @@
 package com.solvd.delivery.transportations;
 
-import com.solvd.delivery.interfaces.ITransportation;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class Ship extends Transportation implements ITransportation  {
-    private int shipId;
+import java.util.Objects;
+
+public class Ship extends Transportation  {
     private String shipName;
     private String shipType;
     private static final Logger logger = LogManager.getLogger(Ship.class);
@@ -14,17 +14,24 @@ public class Ship extends Transportation implements ITransportation  {
     public Ship() {
     }
 
-    public Ship(String transportation, int shipId, String shipName, String shipType) {
+    public Ship(String shipName, String shipType) {
+        this.shipName = shipName;
+        this.shipType = shipType;
+    }
+
+    public Ship(String transportation, int vehicleID, String dateOfDepart, String dateOfArrival, double weightHold, String shipName, String shipType) {
+        super(transportation, vehicleID, dateOfDepart, dateOfArrival, weightHold);
+        this.shipName = shipName;
+        this.shipType = shipType;
+    }
+
+    public Ship(String transportation, String shipName, String shipType) {
         super(transportation);
-        this.shipId = shipId;
         this.shipName = shipName;
         this.shipType = shipType;
     }
 
     // ------------------------ Getters -------------------------//
-    public int getShipId() {
-        return shipId;
-    }
 
     public String getShipName() {
         return shipName;
@@ -35,9 +42,6 @@ public class Ship extends Transportation implements ITransportation  {
     }
 
     // ------------------------ Setters -------------------------//
-    public void setShipId(int shipId) {
-        this.shipId = shipId;
-    }
 
     public void setShipName(String shipName) {
         this.shipName = shipName;
@@ -47,8 +51,27 @@ public class Ship extends Transportation implements ITransportation  {
         this.shipType = shipType;
     }
 
+    // ------------------------ Add Override equals(), hashCode(), toString() -------------------------//
+
     @Override
-    public String transWay() {
-        return null;
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Ship)) return false;
+        if (!super.equals(o)) return false;
+        Ship ship = (Ship) o;
+        return getShipName().equals(ship.getShipName()) && getShipType().equals(ship.getShipType());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), getShipName(), getShipType());
+    }
+
+    @Override
+    public String toString() {
+        return "Ship{" +
+                "shipName='" + shipName + '\'' +
+                ", shipType='" + shipType + '\'' +
+                '}';
     }
 }

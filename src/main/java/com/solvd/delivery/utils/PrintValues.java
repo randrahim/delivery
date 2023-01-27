@@ -10,10 +10,10 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class PrintValues {
+    private Generator generator;
     private static Logger logger = LogManager.getLogger(PrintValues.class);
 
-    public static void printManager() {
-        Generator generator = new Generator();
+    public void printManager() {
         System.out.println("----------------- Manager information -----------------------------------");
         logger.error("Manager ID: " + generator.generatorManager().getManagerID());
         logger.error("Manager Full Name: " + generator.generatorManager().getFullName());
@@ -23,8 +23,7 @@ public class PrintValues {
         logger.error("Manager Salary: " + generator.generatorManager().getManagerSalary() + "\n");
     }
 
-    public static void printEmployee() {
-        Generator generator = new Generator();
+    public void printEmployee() {
         System.out.println("----------------- Employee information -----------------------------------");
         logger.error("Employee ID: " + generator.generatorEmployee().getEmployeeID());
         logger.error("Employee Full Name: " + generator.generatorEmployee().getFullName());
@@ -34,8 +33,7 @@ public class PrintValues {
         logger.error("Employee Salary: " + generator.generatorEmployee().getEmployeeSalary() + "\n");
     }
 
-    public static void printCustomer() {
-        Generator generator = new Generator();
+    public void printCustomer() {
         System.out.println("----------------- Customer information -----------------------------------");
         logger.error("Customer ID: " + generator.generatorCustomer().getCustomerID());
         logger.error("Customer Full Name: " + generator.generatorCustomer().getFullName());
@@ -45,13 +43,11 @@ public class PrintValues {
         logger.error("Customer Membership: " + generator.generatorCustomer().isMember() + "\n");
     }
 
-    public static void printProduct() {
-        Generator generator = new Generator();
+    public void printProduct() {
         Payment payment = new Payment();
         System.out.println("----------------- The Order Summary -------------------------------------------");
         logger.error("The purchase item is: " + generator.generatorProduct().getItem());
         double theItemPrice = generator.generatorProduct().getPrice();
-        double itemPrice = generator.generatorProduct().getPrice();
         logger.error("The item price is: " + theItemPrice);
         int quantity = generator.generatorProduct().getQuantity();
         logger.error("The quantity is: " + quantity + "\n");
@@ -66,31 +62,25 @@ public class PrintValues {
         double totalPayment = payment.getTotal(theItemPrice, quantity) + generator.generatorPaymentMethod().getFee() + generator.generatorDeliveryWay().getDeliveryWay().getExtraFee();
         logger.error("The total payment is: " + totalPayment + "\n");
     }
-    public static void printPackage() {
-        Generator generator = new Generator();
+    public void printPackage() {
         System.out.println("----------------- The order shipping status -----------------------------------");
         double thePackageWeight = generator.generatorPackage().getPackageWeight();
-        // Decide what Transportation Way (Truck, Train, Ship, Airplane)
-//        Transportation transportation = new Transportation();
-//        logger.error("The package shipped by " + transportation.getTransportation(thePackageWeight));
         logger.error(generator.generatorShippingStatus() + "\n");
     }
     public static void printNotifications() {
-        Generator generator = new Generator();
         System.out.println("----------------- Send Notifications to Customer ---------------------------");
         Notifications notifications = new Notifications();
-        notifications.isShipped(true);
+//        notifications.isShipped(true);
         notifications.tracking();
         notifications.sendMsgStatus();
         logger.error("\n");
     }
 
-    public static void printShip() {
-        Generator generator = new Generator();
+    public void printShip() {
         System.out.println("----------------- Print Ship ---------------------------");
         Ship ship = new Ship();
         logger.error(generator.generatorShip().getTransportation());
-        logger.error(generator.generatorShip().getShipId());
+        logger.error(generator.generatorShip().getVehicleID());
         logger.error(generator.generatorShip().getShipName());
         logger.error(generator.generatorShip().getShipType());
         logger.error(generator.generatorShip().getWeightHold());
@@ -98,13 +88,11 @@ public class PrintValues {
         logger.error(generator.generatorShip().getDateOfArrival());
     }
 
-    public static void printTruck() {
-        Generator generator = new Generator();
+    public void printTruck() {
         Truck truck = new Truck();
-
         System.out.println("----------------- Print Ship ---------------------------");
         logger.error(generator.generatorTruck().getTransportation());
-        logger.error(generator.generatorTruck().getTruckId());
+        logger.error(generator.generatorTruck().getVehicleID());
         logger.error(generator.generatorTruck().getTruckName());
         logger.error(generator.generatorTruck().getTruckType());
         logger.error(generator.generatorTruck().getWeightHold());
@@ -112,13 +100,12 @@ public class PrintValues {
         logger.error(generator.generatorTruck().getDateOfArrival());
     }
 
-    public static void printTrain() {
-        Generator generator = new Generator();
+    public void printTrain() {
         Train train = new Train();
 
         System.out.println("----------------- Print Ship ---------------------------");
         logger.error(generator.generatorTrain().getTransportation());
-        logger.error(generator.generatorTrain().getTrainId());
+        logger.error(generator.generatorTrain().getVehicleID());
         logger.error(generator.generatorTrain().getTrainName());
         logger.error(generator.generatorTrain().getTrainType());
         logger.error(generator.generatorTrain().getWeightHold());
@@ -126,35 +113,31 @@ public class PrintValues {
         logger.error(generator.generatorTrain().getDateOfArrival());
     }
 
-    public static void printAirplane() {
-        Generator generator = new Generator();
+    public void printAirplane() {
         Airplane airplane = new Airplane();
 
         System.out.println("----------------- Print Ship ---------------------------");
         logger.error(generator.generatorAirplane().getTransportation());
-        logger.error(generator.generatorAirplane().getAirplaneId());
+        logger.error(generator.generatorAirplane().getVehicleID());
         logger.error(generator.generatorAirplane().getAirplaneName());
         logger.error(generator.generatorAirplane().getAirplaneType());
         logger.error(generator.generatorAirplane().getWeightHold());
         logger.error(generator.generatorAirplane().getDateOfDepart());
         logger.error(generator.generatorAirplane().getDateOfArrival());
     }
-    public static void printEnums() {
-        Generator generator = new Generator();
+    public void printEnums() {
         System.out.println("----------------- Enums Classes --------------------------------------------");
         logger.error("My rating about the overall delivery service: " + generator.generatorDeliveryServiceRating());
         logger.error("My rating about the overall customer service: " + generator.generatorCustomerServiceRating() + "\n");
     }
 
-    public static void printLambda() {
-        Generator generator = new Generator();
+    public void printLambda() {
         System.out.println("----------------- Lambda Classes -------------------------------------------");
-
         generator.generatorIDistance();
-        generator.generatorIShippingStatus();
+//        generator.generatorIShippingStatus();
     }
-    public static void printEqualsHashToString() {
-        Generator generator = new Generator();
+
+    public void printEqualsHashToString() {
         Payment payment = new Payment();
         System.out.println("----------------- using equals, hashCode, toString ---------------------------");
         Payment payment2 = new Payment(24);

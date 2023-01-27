@@ -1,12 +1,11 @@
 package com.solvd.delivery.payment;
 
 import com.solvd.delivery.interfaces.ISendMsgStatus;
-import com.solvd.delivery.interfaces.IShippingStatus;
 import com.solvd.delivery.interfaces.ITrackingPackage;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class Notifications implements IShippingStatus, ITrackingPackage, ISendMsgStatus {
+public class Notifications implements ITrackingPackage, ISendMsgStatus {
     private String delivery;
     private static final Logger logger = LogManager.getLogger(Notifications.class);
 
@@ -29,10 +28,6 @@ public class Notifications implements IShippingStatus, ITrackingPackage, ISendMs
     }
 
     // ------------------------ @Override -------------------------//
-    @Override
-    public void isShipped(boolean shipped) {
-        System.out.println("Your package is: " + shipped);
-    }
 
     @Override
     public void tracking() {

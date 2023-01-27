@@ -1,15 +1,15 @@
 package com.solvd.delivery.payment;
 
+import com.solvd.delivery.interfaces.ICart;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.util.Objects;
 
-public class Payment extends Product {
+public class Payment extends Product implements ICart {
     private double total;
     private Product products;
     private static final Logger logger = LogManager.getLogger(Payment.class);
-//    Generator generator = new Generator();
 
     // ------------------------ Constructors -------------------------//
     public Payment() {
@@ -31,7 +31,7 @@ public class Payment extends Product {
     // ------------------------ Getters -------------------------//
 
     public double getTotal(double theItemPrice, int quantity) {
-        total = (theItemPrice + (theItemPrice * 0.06)) * quantity;
+//        total = (theItemPrice + (theItemPrice * 0.06)) * quantity;
         return total;
     }
 
@@ -65,5 +65,10 @@ public class Payment extends Product {
         return "Payment{" +
                 "total=" + total +
                 '}';
+    }
+
+    @Override
+    public double totalPayment() {
+        return 0;
     }
 }
