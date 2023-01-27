@@ -28,7 +28,6 @@ public class Notifications implements ITrackingPackage, ISendMsgStatus {
     }
 
     // ------------------------ @Override -------------------------//
-
     @Override
     public void tracking() {
         System.out.println("Your tracking number is: 568423971");

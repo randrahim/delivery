@@ -12,7 +12,6 @@ public class Package {
     private static final Logger logger = LogManager.getLogger(Package.class);
 
     // ------------------------ Constructors -------------------------//
-
     public Package() { }
 
     public Package(int packageSerialNumber) {
@@ -29,7 +28,6 @@ public class Package {
     }
 
     // ------------------------ Getters -------------------------//
-
     public int getPackageSerialNumber() {
         return packageSerialNumber;
     }
@@ -39,7 +37,6 @@ public class Package {
     }
 
     // ------------------------ Setters -------------------------//
-
     public void setPackageSerialNumber(int packageSerialNumber) {
         this.packageSerialNumber = packageSerialNumber;
     }
