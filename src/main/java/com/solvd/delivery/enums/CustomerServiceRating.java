@@ -1,28 +1,28 @@
 package com.solvd.delivery.enums;
 
 public enum CustomerServiceRating {
-    BAD(1, 2),
+    BAD(0, 4),
     GOOD(5, 7),
     SATISFIED(8,10);
 
-    private int overallSatisfactionRange;
-    private int overallSatisfactionDeliveryService;
+    private int rating;
+    private int overallSatisfaction;
 
     // ------------------------ Constructors -------------------------//
     CustomerServiceRating() {
     }
 
-    CustomerServiceRating(int overallSatisfactionRange, int overallSatisfactionDeliveryService) {
-        this.overallSatisfactionRange = overallSatisfactionRange;
-        this.overallSatisfactionDeliveryService = overallSatisfactionDeliveryService;
-    }    
-
-    // ------------------------ Getters -------------------------//
-    public int getOverallSatisfactionRange() {
-        return overallSatisfactionRange;
+    CustomerServiceRating(int rating, int overallSatisfaction) {
+        this.rating = rating;
+        this.overallSatisfaction = overallSatisfaction;
     }
 
-    public int getOverallSatisfactionDeliveryService() {
-        return overallSatisfactionDeliveryService;
+    // ------------------------ Getters -------------------------//
+    public int getRating() {
+        return rating;
+    }
+
+    public int getOverallSatisfaction() {
+        return overallSatisfaction;
     }
 }
