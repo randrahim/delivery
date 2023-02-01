@@ -1,71 +1,74 @@
 package com.solvd.delivery.payment;
 
+import com.solvd.delivery.interfaces.ICart;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.util.Objects;
 
-public class Product {
-    private String item;
-    private double price;
-    private int quantity;
-    private static final Logger logger = LogManager.getLogger(Product.class);
+public class Payment extends Product implements ICart {
+    private double total;
+    private Product products;
+    private static final Logger logger = LogManager.getLogger(Payment.class);
 
     // ------------------------ Constructors -------------------------//
-    public Product() {
+    public Payment() {
     }
 
-    public Product(String item, double price, int quantity) {
-        this.item = item;
-        this.price = price;
-        this.quantity = quantity;
+    public Payment(Product products) {
+        this.products = products;
     }
 
-    // ------------------------ Getters ------------------------------//
-    public String getItem() {
-        return item;
+    public Payment(double total) {
+        this.total = total;
     }
 
-    public double getPrice() {
-        return price;
+    public Payment(double total, Product products) {
+        this.total = total;
+        this.products = products;
     }
 
-    public int getQuantity() {
-        return quantity;
+    // ------------------------ Getters -------------------------//
+
+    public double getTotal(double theItemPrice, int quantity) {
+//        total = (theItemPrice + (theItemPrice * 0.06)) * quantity;
+        return total;
     }
 
-    // ------------------------ Setters ------------------------------//
-    public void setItem(String item) {
-        this.item = item;
+    public double getTotal() { return total; }
+
+    public Product getProducts() {  return products; }
+
+    // ------------------------ Setters -------------------------//
+    public void setTotal(double total) {
+        this.total = total;
     }
 
-    public void setPrice(double price) {
-        this.price = price;
-    }
+    public void setProducts(Product products) {  this.products = products; }
 
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
     // ------------------------ Add Override equals(), hashCode(), toString() -------------------------//
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Product)) return false;
-        Product product = (Product) o;
-        return Double.compare(product.getPrice(), getPrice()) == 0 && getQuantity() == product.getQuantity() && getItem().equals(product.getItem());
+        if (!(o instanceof Payment)) return false;
+        Payment payment = (Payment) o;
+        return Double.compare(payment.getTotal(), getTotal()) == 0;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getItem(), getPrice(), getQuantity());
+        return Objects.hash(getTotal());
     }
 
     @Override
     public String toString() {
-        return "Product{" +
-                "item='" + item + '\'' +
-                ", price=" + price +
-                ", quantity=" + quantity +
+        return "Payment{" +
+                "total=" + total +
                 '}';
+    }
+
+    @Override
+    public double totalPayment() {
+        return 0;
     }
 }
