@@ -1,64 +1,69 @@
-package com.solvd.delivery;
+package com.solvd.delivery.payment;
 
-import com.solvd.delivery.interfaces.ICart;
-import com.solvd.delivery.interfaces.ITransportation;
-import com.solvd.delivery.utils.Generator;
-import com.solvd.delivery.utils.PrintValues;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import static com.solvd.delivery.utils.Generator.generatorProduct;
+import java.util.Objects;
 
-public class Main extends Thread {
-    private static Logger logger = LogManager.getLogger(Main.class);
-    public static void main(String[] args) {
+public class Package {
 
-        // Using PrintValues to print out the values from Generator class
-        Generator generator = new Generator();
-        PrintValues printValues = new PrintValues();
+    private int packageSerialNumber;
+    private double packageWeight;
+    private static final Logger logger = LogManager.getLogger(Package.class);
 
-        printValues.printManager();
-        printValues.printEmployee();
-        printValues.printCustomer();
+    // ------------------------ Constructors -------------------------//
+    public Package() { }
 
-        printValues.printProduct();
-        printValues.printPackage();
-        printValues.printNotifications();
-        printValues.printEnums();
+    public Package(int packageSerialNumber) {
+        this.packageSerialNumber = packageSerialNumber;
+    }
 
-        double thePackageWeight = generator.generatorPackage().getPackageWeight();
-        System.out.println("The package weight is: " + thePackageWeight);
+    public Package(double packageWeight) {
+        this.packageWeight = packageWeight;
+    }
 
-        // Using Lambda Expression & Functional Interface to get transportation way to ship the package
-        // Decide what Transportation Way (Truck, Train, Ship, Airplane) based on the PackageWeight
-        ITransportation iTransportation = () -> {
-            String transportation = "";
-            if ((0 <= thePackageWeight) && (thePackageWeight <= 10)) {
-                transportation = "Truck";
-                printValues.printTruck();
-            } else if ((11 <= thePackageWeight) && (thePackageWeight <= 20)) {
-                transportation = "Train";
-                printValues.printTrain();
-            } else if ((21 <= thePackageWeight) && (thePackageWeight <= 30)) {
-                transportation = "The transportation way is Ship";
-                printValues.printShip();
-            } else if (31 <= thePackageWeight) {
-                transportation = "Airplane";
-                printValues.printAirplane();
-            }
-            return transportation;
-        };
+    public Package(int packageSerialNumber, double packageWeight) {
+        this.packageSerialNumber = packageSerialNumber;
+        this.packageWeight = packageWeight;
+    }
 
-        logger.error(iTransportation.transWay());
+    // ------------------------ Getters -------------------------//
+    public int getPackageSerialNumber() {
+        return packageSerialNumber;
+    }
 
-        // Using Lambda Expression & Functional Interface to get the Total Payment
-        double theItemPrice = generatorProduct().getPrice();
-        int quantity = generator.generatorProduct().getQuantity();
+    public double getPackageWeight() {
+        return packageWeight;
+    }
 
-        ICart iCart = () -> {
-            double total = (theItemPrice + (theItemPrice * 0.06)) * quantity;
-            return total;
-        };
-        logger.error("The total payment is: " + iCart.totalPayment());
+    // ------------------------ Setters -------------------------//
+    public void setPackageSerialNumber(int packageSerialNumber) {
+        this.packageSerialNumber = packageSerialNumber;
+    }
+
+    public void setPackageWeight(double packageWeight) {
+        this.packageWeight = packageWeight;
+    }
+
+    // ------------------------ Add Override equals(), hashCode(), toString() -------------------------//
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Package)) return false;
+        Package aPackage = (Package) o;
+        return getPackageSerialNumber() == aPackage.getPackageSerialNumber() && Double.compare(aPackage.getPackageWeight(), getPackageWeight()) == 0;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getPackageSerialNumber(), getPackageWeight());
+    }
+
+    @Override
+    public String toString() {
+        return "Package{" +
+                "packageSerialNumber=" + packageSerialNumber +
+                ", packageWeight=" + packageWeight +
+                '}';
     }
 }
