@@ -15,16 +15,7 @@ public enum CustomerServiceRating {
     CustomerServiceRating(int overallSatisfactionRange, int overallSatisfactionDeliveryService) {
         this.overallSatisfactionRange = overallSatisfactionRange;
         this.overallSatisfactionDeliveryService = overallSatisfactionDeliveryService;
-    }
-
-    // ------------------------ Setters -------------------------//
-    public void setOverallSatisfactionRange(int overallSatisfactionRange) {
-        this.overallSatisfactionRange = overallSatisfactionRange;
-    }
-
-    public void setOverallSatisfactionDeliveryService(int overallSatisfactionDeliveryService) {
-        this.overallSatisfactionDeliveryService = overallSatisfactionDeliveryService;
-    }
+    }    
 
     // ------------------------ Getters -------------------------//
     public int getOverallSatisfactionRange() {
