@@ -1,24 +1,32 @@
 package com.solvd.delivery.enums;
 
 public enum DeliveryServiceRating {
-    BAD,
-    GOOD,
-    SATISFIED;
+    BAD(0, 4),
+    GOOD(5,7),
+    SATISFIED(8, 10);
 
-//    public String getMyRatingForDeliveryService() {
-//        // this will refer to the object Bad, Good, or Satisfied.
-//        switch (this) {
-//            case Bad:
-//                return "Bad";
-//
-//            case Good:
-//                return "Good";
-//
-//            case Satisfied:
-//                return "Satisfied";
-//
-//            default:
-//                return null;
-//        }
-//    }
+    private int rating;
+    private int overallSatisfaction;
+
+    // ------------------------ Constructors -------------------------//
+    DeliveryServiceRating() {
+    }
+
+    DeliveryServiceRating(int rating) {
+        this.rating = rating;
+    }
+
+    DeliveryServiceRating(int rating, int overallSatisfaction) {
+        this.rating = rating;
+        this.overallSatisfaction = overallSatisfaction;
+    }
+
+    // ------------------------ Getters -------------------------//
+    public int getRating() {
+        return rating;
+    }
+
+    public int getOverallSatisfaction() {
+        return overallSatisfaction;
+    }
 }
