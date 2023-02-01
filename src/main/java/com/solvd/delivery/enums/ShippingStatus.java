@@ -20,9 +20,4 @@ public enum ShippingStatus {
     public boolean isShipped() { return shipped; }
 
     public String getTrackingNo() { return trackingNo; }
-
-    // ------------------------ Setters -------------------------//
-    public void setShipped(boolean shipped) { this.shipped = shipped; }
-
-    public void setTrackingNo(String trackingNo) { this.trackingNo = trackingNo; }
 }
