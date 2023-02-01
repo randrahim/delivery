@@ -1,6 +1,6 @@
 package com.solvd.delivery.enums;
 
-public enum DeliveryWay {
+public enum DeliverySpeed {
     FAST("Fast delivery", 3, 1.5, 7.0),
     STANDARD("Standard delivery", 10, 1.1, 0.0);
 
@@ -11,10 +11,10 @@ public enum DeliveryWay {
 
     // ------------------------ Constructors -------------------------//
 
-    DeliveryWay() {
+    DeliverySpeed() {
     }
 
-    DeliveryWay(String deliveryWay, int daysAmount, double coefficient, double extraFee) {
+    DeliverySpeed(String deliveryWay, int daysAmount, double coefficient, double extraFee) {
         this.deliveryWay = deliveryWay;
         DaysAmount = daysAmount;
         this.coefficient = coefficient;
@@ -35,19 +35,4 @@ public enum DeliveryWay {
     }
 
     public double getExtraFee() { return extraFee; }
-
-    // ------------------------ Setters -------------------------//
-    public void setDeliveryWay(String deliveryWay) {
-        this.deliveryWay = deliveryWay;
-    }
-
-    public void setDaysAmount(int daysAmount) {
-        DaysAmount = daysAmount;
-    }
-
-    public void setCoefficient(double coefficient) {
-        this.coefficient = coefficient;
-    }
-
-    public void setExtraFee(double extraFee) { this.extraFee = extraFee; }
 }
