@@ -1,10 +1,15 @@
 package com.solvd.delivery.payment;
 
-public class Product {
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
+import java.util.Objects;
+
+public class Product {
     private String item;
     private double price;
     private int quantity;
+    private static final Logger logger = LogManager.getLogger(Product.class);
 
     // ------------------------ Constructors -------------------------//
     public Product() {
@@ -41,51 +46,26 @@ public class Product {
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
+    // ------------------------ Add Override equals(), hashCode(), toString() -------------------------//
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Product)) return false;
+        Product product = (Product) o;
+        return Double.compare(product.getPrice(), getPrice()) == 0 && getQuantity() == product.getQuantity() && getItem().equals(product.getItem());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getItem(), getPrice(), getQuantity());
+    }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "item='" + item + '\'' +
+                ", price=" + price +
+                ", quantity=" + quantity +
+                '}';
+    }
 }
-
-//    String items[] = {"Apple", "Banana", "Cherry"};
-//    double price[] = {1.99, 2.99, 3.99};
-
-
-//    public Product(String[] items) {
-//        this.items = items;
-//    }
-//
-//    public Product(double[] price) {
-//        this.price = price;
-//    }
-//
-//    public int getNoOfPurchasedItems() {
-//        noOfPurchasedItems =items.length;
-//        return noOfPurchasedItems;
-//    }
-
-// ------------------------ Getters -------------------------//
-//    public String[] getItems() {
-//        for(int i=0; i<items.length; i++) {
-//            System.out.println(items[i]);
-//        }
-//        return items;
-//    }
-//
-//    public double[] getPrice() {
-//        for(int i=0; i<price.length; i++) {
-//            System.out.println(price[i]);
-//        }
-//        return price;
-//    }
-
-// ------------------------ Setters -------------------------//
-//    public void setItems(String[] items) {
-//        this.items = items;
-//    }
-//
-//    public void setPrice(double[] price) {
-//        this.price = price;
-//    }
-//
-//    public void setItems(String item1) {
-//    }
-//
-//    public void setPrice(double price1) {
-//    }
