@@ -1,23 +1,28 @@
 package com.solvd.delivery.shippingMethods;
 
-import com.solvd.delivery.enums.DeliveryWay;
-import com.solvd.delivery.interfaces.IShippingDestination;
+import com.solvd.delivery.enums.DeliverySpeed;
+import com.solvd.delivery.interfaces.IDistance;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
-public class ShippingMethod implements IShippingDestination {
+import java.util.Objects;
+
+public class ShippingMethod implements IDistance {
 
     private double cost;
-    private DeliveryWay deliveryWay;
+    private DeliverySpeed deliverySpeed;
+    private static final Logger logger = LogManager.getLogger(ShippingMethod.class);
 
     // ------------------------ Constructors -------------------------//
     public ShippingMethod() { }
 
     public ShippingMethod(double cost) { this.cost = cost; }
 
-    public ShippingMethod(DeliveryWay deliveryWay) { this.deliveryWay = deliveryWay; }
+    public ShippingMethod(DeliverySpeed deliverySpeed) { this.deliverySpeed = deliverySpeed; }
 
-    public ShippingMethod(double cost, DeliveryWay deliveryWay) {
+    public ShippingMethod(double cost, DeliverySpeed deliverySpeed) {
         this.cost = cost;
-        this.deliveryWay = deliveryWay;
+        this.deliverySpeed = deliverySpeed;
     }
 
     // ------------------------ Getters -------------------------//
@@ -26,8 +31,8 @@ public class ShippingMethod implements IShippingDestination {
         return cost;
     }
 
-    public DeliveryWay getDeliveryWay() {
-        return deliveryWay;
+    public DeliverySpeed getDeliveryWay() {
+        return deliverySpeed;
     }
 
     // ------------------------ Setters -------------------------//
@@ -36,16 +41,35 @@ public class ShippingMethod implements IShippingDestination {
         this.cost = cost;
     }
 
-    public void setDeliveryWay(DeliveryWay deliveryWay) {
-        this.deliveryWay = deliveryWay;
+    public void setDeliveryWay(DeliverySpeed deliverySpeed) {
+        this.deliverySpeed = deliverySpeed;
     }
 
     // ------------------------ @Override -------------------------//
+
     @Override
-    public void destination() {
-        System.out.println("Your package has been shipped to " + toHome);
+    public void distance(String source, String destination) {
+
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof ShippingMethod)) return false;
+        ShippingMethod that = (ShippingMethod) o;
+        return Double.compare(that.getCost(), getCost()) == 0 && getDeliveryWay() == that.getDeliveryWay();
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getCost(), getDeliveryWay());
+    }
+
+    @Override
+    public String toString() {
+        return "ShippingMethod{" +
+                "cost=" + cost +
+                ", deliverySpeed=" + deliverySpeed +
+                '}';
     }
 }
-
-
-
