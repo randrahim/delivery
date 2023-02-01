@@ -1,9 +1,15 @@
 package com.solvd.delivery.people;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import java.util.Objects;
+
 public abstract class Person {
     private String fullName;
     private String address;
     private String email;
+    private static final Logger logger = LogManager.getLogger(Person.class);
 
     // ------------------------ Constructors -------------------------//
     public Person() {
@@ -41,4 +47,27 @@ public abstract class Person {
         return email;
     }
 
+    // ------------------------ Add Override equals(), hashCode(), toString() -------------------------//
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Person)) return false;
+        Person person = (Person) o;
+        return getFullName().equals(person.getFullName()) && getAddress().equals(person.getAddress()) && getEmail().equals(person.getEmail());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getFullName(), getAddress(), getEmail());
+    }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "fullName='" + fullName + '\'' +
+                ", address='" + address + '\'' +
+                ", email='" + email + '\'' +
+                '}';
+    }
 }
