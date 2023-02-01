@@ -1,37 +1,23 @@
 package com.solvd.delivery.enums;
 
-public enum PaymentMethod {
-    CREDIT("Credit", 0),
-    DEBIT("Debit", 1.99),
-    MASTER("Master", 2.99),
-    PAYPAL("PayPal", 3.99);
+public enum ShippingStatus {
+    SHIPPED(true, "00123"),
+    UNSHIPPED(false, "N/A");
 
-    private String paymentMethod;
-    private double fee;
+    private boolean shipped;
+    private String trackingNo;
 
     // ------------------------ Constructors -------------------------//
-    PaymentMethod() {
+    ShippingStatus() {
     }
 
-    PaymentMethod(double fee) {
-        this.fee = fee;
-    }
-
-    PaymentMethod(String paymentMethod) {
-        this.paymentMethod = paymentMethod;
-    }
-
-    PaymentMethod(String paymentMethod, double fee) {
-        this.paymentMethod = paymentMethod;
-        this.fee = fee;
+    ShippingStatus(boolean shipped, String trackingNo) {
+        this.shipped = shipped;
+        this.trackingNo = trackingNo;
     }
 
     // ------------------------ Getters -------------------------//
-    public String getPaymentMethod() {
-        return paymentMethod;
-    }
+    public boolean isShipped() { return shipped; }
 
-    public double getFee() {
-        return fee;
-    }
+    public String getTrackingNo() { return trackingNo; }
 }
