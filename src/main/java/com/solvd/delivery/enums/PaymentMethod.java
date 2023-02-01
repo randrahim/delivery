@@ -34,13 +34,4 @@ public enum PaymentMethod {
     public double getFee() {
         return fee;
     }
-
-    // ------------------------ Setters -------------------------//
-    public void setPaymentMethod(String paymentMethod) {
-        this.paymentMethod = paymentMethod;
-    }
-
-    public void setFee(double fee) {
-        this.fee = fee;
-    }
 }
